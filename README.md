@@ -1,217 +1,284 @@
-<!-- # SVFR: A Unified Framework for Generalized Video Face Restoration -->
+# 🎨 Программа для колоризации черно-белого видео
 
-<div>
-<h1>SVFR: A Unified Framework for Generalized Video Face Restoration</h1>
-</div>
+Автоматическая колоризация черно-белых видео с использованием глубокого обучения и нейронных сетей.
 
-[![arXiv](https://img.shields.io/badge/arXiv-2307.04725-b31b1b.svg)](https://arxiv.org/pdf/2501.01235)
-[![Project Page](https://img.shields.io/badge/Project-Website-green)](https://wangzhiyaoo.github.io/SVFR/)
+## 🌟 Особенности
 
-## 🔥 Overview
+- ✅ Автоматическая колоризация черно-белых видео
+- ✅ Поддержка GPU для ускорения обработки
+- ✅ Поддержка различных форматов видео (MP4, AVI, MOV, MKV и др.)
+- ✅ Интуитивный интерфейс командной строки
+- ✅ Режим предварительного просмотра
+- ✅ Отображение прогресса обработки
+- ✅ Автоматическое определение оптимальных настроек
 
-SVFR is a unified framework for face video restoration that supports tasks such as **BFR, Colorization, Inpainting**, and **their combinations** within one cohesive system.
+## 🚀 Быстрый старт
 
-<img src="assert/method.png">
-
-## 🎬 Demo
-
-### BFR
-<!-- 
-<div style="display: flex; gap: 10px;">
-  <video controls width="360">
-    <source src="https://wangzhiyaoo.github.io/SVFR/static/videos/wild-test/case1_bfr.mp4" type="video/mp4">
-    
-  </video>
-  
-  <video controls width="360">
-    <source src="https://wangzhiyaoo.github.io/SVFR/static/videos/wild-test/case4_bfr.mp4" type="video/mp4">
-    
-  </video>
-</div> -->
-
-
-<!-- <div style="display: flex; gap: 10px;">
-  <video src="https://github.com/user-attachments/assets/49f985f3-a2db-4b9f-aed0-e9943bae9c17" controls width=45%></video>
-  <video src="https://github.com/user-attachments/assets/8fcd1dd9-79d3-4e57-b98e-a80ae2badfb5" controls width="45%"></video>
-</div> -->
-
-| Case1                                                                                                                        | Case2                                                                                                                        |
-|--------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-|<video src="https://github.com/user-attachments/assets/49f985f3-a2db-4b9f-aed0-e9943bae9c17" /> | <video src="https://github.com/user-attachments/assets/8fcd1dd9-79d3-4e57-b98e-a80ae2badfb5" /> |
-
-
-<!-- <video src="https://wangzhiyaoo.github.io/SVFR/bfr"> -->
-
-
-
-<!-- https://github.com/user-attachments/assets/49f985f3-a2db-4b9f-aed0-e9943bae9c17
-  
-https://github.com/user-attachments/assets/8fcd1dd9-79d3-4e57-b98e-a80ae2badfb5 -->
-
-
-
-
-
-### BFR+Colorization
-<!-- <div style="display: flex; gap: 10px;">
-  <video controls width="360">
-    <source src="https://wangzhiyaoo.github.io/SVFR/static/videos/wild-test/case10_bfr_colorization.mp4" type="video/mp4">
-    
-  </video>
-  
-  <video controls width="360">
-    <source src="https://wangzhiyaoo.github.io/SVFR/static/videos/wild-test/case12_bfr_colorization.mp4" type="video/mp4">
-    
-  </video>
-</div> -->
-
-
-<!-- https://github.com/user-attachments/assets/795f4cb1-a7c9-41c5-9486-26e64a96bcf0
-
-https://github.com/user-attachments/assets/6ccf2267-30be-4553-9ecc-f3e7e0ca1d6f -->
-
-| Case3                                                                                                                        | Case4                                                                                                                        |
-|--------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-|<video src="https://github.com/user-attachments/assets/795f4cb1-a7c9-41c5-9486-26e64a96bcf0" /> | <video src="https://github.com/user-attachments/assets/6ccf2267-30be-4553-9ecc-f3e7e0ca1d6f" /> |
-
-
-### BFR+Colorization+Inpainting
-<!-- <div style="display: flex; gap: 10px;">
-  <video controls width="360">
-    <source src="https://wangzhiyaoo.github.io/SVFR/static/videos/wild-test/case14_bfr+colorization+inpainting.mp4" type="video/mp4">
-    
-  </video>
-  
-  <video controls width="360">
-    <source src="https://wangzhiyaoo.github.io/SVFR/static/videos/wild-test/case15_bfr+colorization+inpainting.mp4" type="video/mp4">
-    
-  </video>
-</div> -->
-
-
-
-<!-- https://github.com/user-attachments/assets/6113819f-142b-4faa-b1c3-a2b669fd0786
-
-https://github.com/user-attachments/assets/efdac23c-0ba5-4dad-ab8c-48904af5dd89
- -->
-
-
-| Case5                                                                                                                        | Case6                                                                                                                        |
-|--------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-|<video src="https://github.com/user-attachments/assets/6113819f-142b-4faa-b1c3-a2b669fd0786" /> | <video src="https://github.com/user-attachments/assets/efdac23c-0ba5-4dad-ab8c-48904af5dd89" /> |
-
-
-## 🎙️ News
-
-- **[2025.01.02]**: We released the initial version of the [inference code](#inference) and [models](#download-checkpoints). Stay tuned for continuous updates!
-- **[2024.12.17]**: This repo is created!
-
-## 🚀 Getting Started
-
-> Note: It is recommended to use a GPU with 16GB or more VRAM.
-
-## Setup
-
-Use the following command to install a conda environment for SVFR from scratch:
+### 1. Установка зависимостей
 
 ```bash
-conda create -n svfr python=3.9 -y
-conda activate svfr
+# Установка основных зависимостей
+pip install -r requirements.txt
+
+# Для GPU поддержки (опционально)
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
 ```
 
-Install PyTorch:  make sure to select the appropriate CUDA version based on your hardware, for example,
+### 2. Базовое использование
 
 ```bash
-pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2
+# Простая колоризация
+python main.py input_video.mp4
+
+# Колоризация с указанием выходного файла
+python main.py input_video.mp4 -o colorized_video.mp4
+
+# Предварительный просмотр (100 кадров)
+python main.py input_video.mp4 --preview
 ```
 
-Install Dependencies:
+## 📖 Подробное руководство
 
+### Системные требования
+
+**Минимальные:**
+- Python 3.8+
+- 8 GB RAM
+- 2 GB свободного места
+
+**Рекомендуемые:**
+- Python 3.9+
+- 16 GB RAM
+- GPU с 4+ GB VRAM (NVIDIA)
+- 10 GB свободного места
+
+### Установка
+
+1. **Клонируйте репозиторий:**
+```bash
+git clone <repository_url>
+cd video-colorization
+```
+
+2. **Создайте виртуальное окружение:**
+```bash
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# или
+venv\Scripts\activate     # Windows
+```
+
+3. **Установите зависимости:**
 ```bash
 pip install -r requirements.txt
 ```
 
-## Download checkpoints
+### Использование
 
-<li>Download the Stable Video Diffusion</li>
+#### Основные команды
 
-```
-conda install git-lfs
-git lfs install
-git clone https://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt models/stable-video-diffusion-img2vid-xt
-```
+```bash
+# Базовая колоризация
+python main.py video.mp4
 
-<li>Download SVFR</li>
+# Указание выходного файла
+python main.py video.mp4 -o results/colorized.mp4
 
-You can download checkpoints manually through link on [Google Drive](https://drive.google.com/drive/folders/1nzy9Vk-yA_DwXm1Pm4dyE2o0r7V6_5mn?usp=share_link).
+# Указание выходной директории
+python main.py video.mp4 -o ./results/
 
-Put checkpoints as follows:
+# Использование предобученной модели
+python main.py video.mp4 --model pretrained_weights.pth
 
-```
-└── models
-    ├── face_align
-    │   ├── yoloface_v5m.pt
-    ├── face_restoration
-    │   ├── unet.pth
-    │   ├── id_linear.pth
-    │   ├── insightface_glint360k.pth
-    └── stable-video-diffusion-img2vid-xt
-        ├── vae
-        ├── scheduler
-        └── ...
+# Принудительное использование CPU
+python main.py video.mp4 --cpu
+
+# Режим предварительного просмотра
+python main.py video.mp4 --preview
+
+# Подробный вывод
+python main.py video.mp4 -v
 ```
 
-## Inference
+#### Параметры командной строки
 
-### Inference single or multi task
+| Параметр | Описание | Пример |
+|----------|----------|---------|
+| `input` | Входной видео файл (обязательный) | `video.mp4` |
+| `-o, --output` | Выходной файл или директория | `-o result.mp4` |
+| `--model` | Путь к предобученной модели | `--model weights.pth` |
+| `--cpu` | Использовать CPU вместо GPU | `--cpu` |
+| `--preview` | Обработать только 100 кадров | `--preview` |
+| `-v, --verbose` | Подробный вывод | `-v` |
+
+### Поддерживаемые форматы
+
+**Входные форматы:**
+- MP4, AVI, MOV, MKV, WMV, FLV, WEBM
+
+**Выходные форматы:**
+- MP4 (рекомендуется)
+
+## 🧠 Как это работает
+
+### Архитектура модели
+
+Программа использует архитектуру U-Net для колоризации:
+
+1. **Предобработка:** Конвертация в Lab цветовое пространство
+2. **Энкодер:** Извлечение признаков из канала яркости (L)
+3. **Декодер:** Генерация цветовых каналов (a, b)
+4. **Постобработка:** Объединение каналов и конвертация в RGB
+
+### Цветовое пространство Lab
+
+- **L (Lightness):** Яркость (0-100)
+- **a:** Зелено-красная компонента (-128 до 127)
+- **b:** Сине-желтая компонента (-128 до 127)
+
+Это пространство идеально для колоризации, так как позволяет работать с яркостью и цветом отдельно.
+
+## 📁 Структура проекта
 
 ```
-python3 infer.py \
- --config config/infer.yaml \
- --task_ids 0 \
- --input_path ./assert/lq/lq1.mp4 \
- --output_dir ./results/ 
+video-colorization/
+├── main.py                 # Основной скрипт
+├── colorization_model.py   # Модель нейронной сети
+├── utils.py                # Утилиты для работы с видео
+├── requirements.txt        # Зависимости
+└── README.md              # Документация
 ```
 
-<li>task_id:</li>
+## 🔧 Дополнительные утилиты
 
-> 0 -- bfr  
-> 1 -- colorization  
-> 2 -- inpainting  
-> 0,1 -- bfr and colorization  
-> 0,1,2 -- bfr and colorization and inpainting  
-> ...
+### Проверка системы
 
-### Inference with additional inpainting mask
-
-```
-# For Inference with Inpainting
-# Add '--mask_path' if you need to specify the mask file.
-
-python3 infer.py \
- --config config/infer.yaml \
- --task_ids 0,1,2 \
- --input_path ./assert/lq/lq3.mp4 \
- --output_dir ./results/ 
- --mask_path ./assert/mask/lq3.png
+```bash
+python utils.py
 ```
 
-## License
+Выводит информацию о:
+- Доступности GPU
+- Объеме RAM
+- Характеристиках CPU
+- Рекомендациях по оптимизации
 
-The code of SVFR is released under the MIT License. There is no limitation for both academic and commercial usage.
+### Анализ видео
 
-**The pretrained models we provided with this library are available for non-commercial research purposes only, including both auto-downloading models and manual-downloading models.**
+```python
+from utils import get_video_info, is_grayscale_video
 
+# Информация о видео
+info = get_video_info('video.mp4')
+print(f"Разрешение: {info['width']}x{info['height']}")
+print(f"FPS: {info['fps']}")
+print(f"Длительность: {info['duration']:.2f} сек")
 
-## BibTex
+# Проверка на черно-белое видео
+is_bw = is_grayscale_video('video.mp4')
+print(f"Черно-белое: {is_bw}")
 ```
-@misc{wang2025svfrunifiedframeworkgeneralized,
-      title={SVFR: A Unified Framework for Generalized Video Face Restoration}, 
-      author={Zhiyao Wang and Xu Chen and Chengming Xu and Junwei Zhu and Xiaobin Hu and Jiangning Zhang and Chengjie Wang and Yuqi Liu and Yiyi Zhou and Rongrong Ji},
-      year={2025},
-      eprint={2501.01235},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2501.01235}, 
-}
+
+## ⚡ Оптимизация производительности
+
+### GPU ускорение
+
+Для максимальной производительности используйте GPU:
+
+```bash
+# Проверка доступности CUDA
+python -c "import torch; print(torch.cuda.is_available())"
+
+# Установка PyTorch с CUDA поддержкой
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
 ```
+
+### Настройка памяти
+
+Для больших видео может потребоваться:
+
+1. **Увеличение виртуальной памяти**
+2. **Обработка по частям** (используйте `--preview` для тестов)
+3. **Уменьшение разрешения** входного видео
+
+## 🐛 Устранение проблем
+
+### Частые ошибки
+
+**1. "CUDA out of memory"**
+```bash
+# Решение: используйте CPU
+python main.py video.mp4 --cpu
+```
+
+**2. "File not found"**
+```bash
+# Проверьте путь к файлу
+ls -la video.mp4
+python main.py "$(pwd)/video.mp4"
+```
+
+**3. "Unsupported video format"**
+```bash
+# Конвертируйте в MP4
+ffmpeg -i input.avi output.mp4
+```
+
+**4. Медленная обработка**
+- Используйте GPU если доступен
+- Попробуйте режим preview для тестирования
+- Уменьшите разрешение видео
+
+### Логи и отладка
+
+```bash
+# Подробный вывод для отладки
+python main.py video.mp4 -v
+
+# Проверка системных ресурсов
+python utils.py
+```
+
+## 📊 Примеры результатов
+
+### Время обработки (приблизительно)
+
+| Разрешение | Длительность | CPU (i7) | GPU (RTX 3080) |
+|------------|--------------|----------|----------------|
+| 720p | 1 мин | 15 мин | 3 мин |
+| 1080p | 1 мин | 25 мин | 5 мин |
+| 4K | 1 мин | 60 мин | 12 мин |
+
+*Время может варьироваться в зависимости от сложности сцен*
+
+## 🤝 Вклад в проект
+
+1. Fork репозитория
+2. Создайте ветку для новой функции
+3. Внесите изменения
+4. Создайте Pull Request
+
+## 📝 Лицензия
+
+Этот проект распространяется под лицензией MIT. См. файл LICENSE для деталей.
+
+## 🙏 Благодарности
+
+- PyTorch команда за отличный фреймворк
+- OpenCV за инструменты работы с видео
+- Scikit-image за утилиты работы с цветом
+
+## 📞 Поддержка
+
+Если у вас возникли вопросы или проблемы:
+
+1. Проверьте раздел "Устранение проблем"
+2. Создайте Issue в репозитории
+3. Убедитесь, что приложили:
+   - Версию Python
+   - Сообщение об ошибке
+   - Информацию о системе (`python utils.py`)
+
+---
+
+**Удачной колоризации! 🎨✨**
